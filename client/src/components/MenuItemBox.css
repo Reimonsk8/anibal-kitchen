@@ -1,0 +1,22 @@
+.menu-item-box{
+    display: inline-block;
+    text-size-adjust: 100%;
+    font-family: Heebo, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: white;
+    border-radius: 10px;
+    padding: 2vw;
+    margin: 2vw;
+    box-shadow: rgba(245, 19, 142, 0.24);
+    background: linear-gradient(to right, #c700a2, #ff188b);
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizelegibility;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    width: 50px;
+    height: 50px;
+    opacity: 0.9;
+    width: 50px;
+    height: 50px;
+}
