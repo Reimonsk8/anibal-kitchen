@@ -5,7 +5,6 @@ const MenuItemBox  = ({text, selected}) => {
     return(
         <div className={`menu-item-box ${selected ? 'active' : ''}`}>
             {text}
-            <p>Hola</p>
         </div>
     )
 }
