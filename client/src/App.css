@@ -1,25 +1,65 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:regular,bold,italic&subset=latin,latin-ext');
+.App *{
+  /* border: #23d5ab 1px solid; */
+  text-align: center;
+  color: white;
+}
 .playlist-container{
+  z-index: 1;
+  /*
   display: flex;
   flex-direction: column;
   font-size: calc(10px + 2vmin);
-  align-items: center;
+  align-items: center;*/
   color: white;
-  height: 100vh;
   width: 100vw;
-  background: linear-gradient(#19009b, #05001b , #121212);
+ /*background: linear-gradient(#19009b, #05001b , #121212);*/
+  /*background: linear-gradient(235deg,#09095b, #05001b , #121212);*/
   text-size-adjust: 100%;
   font-family: Heebo, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #ff3ba7;
   box-shadow:  rgba(245, 19, 142, 0.24);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizelegibility;
   -webkit-tap-highlight-color: transparent;
+}
+.layer{
+  z-index: -2;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+	background: linear-gradient(335deg,black,black,black, #e73c7e,  #09095b, #05001b , #121212, black,black,black);
+  background-size: 400% 400%;
+ 
+  animation: gradient 30s ease infinite;
+}
+.layer2{
+  z-index: -1;
+  opacity: 0.5;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("https://static.wixstatic.com/media/d81b0f_185f788dfce041c9964b478cd1c513b7~mv2.gif");
+  background-size: cover;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 i {
   float: left;
   margin-right: 10px;
 }
 h1{
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  margin-top: 0px;
   color:white;
 }
 h3{
@@ -27,31 +67,27 @@ h3{
   color: whitesmoke;
 }
 .App-logo {
-  height: 20vmin;
+  height: 20vh;
   pointer-events: none;
 }
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-spin infinite 5s linear;
   }
-}
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 @keyframes App-logo-spin {
-  from {
+  0% {
     transform: rotate(0deg);
   }
-  to {
-    transform: rotate(360deg);
+  25% {
+    transform: rotate(-20deg);
+  }
+  75% {
+    transform: rotate(20deg);
+  }
+  100%{
+    transform:rotate(0deg);
   }
 }
 
@@ -63,12 +99,100 @@ h3{
   border: none;
 }
 .menu-item-wrapper.active {
-  border: 1px blue solid;
+  /* border: 1px blue solid; */
 }
 .menu-item.active {
-  border: 1px green solid;
+  /* border: 1px green solid; */
 }
-.scroll-menu-arrow {
-  padding: 20px;
-  cursor: pointer;
+
+
+* {
+  font-family: "Roboto", sans-serif;
+}
+.btn__container {
+  width: 900vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn {
+  min-width: 110px;
+  background-color: #332;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  color: #c71e7e;
+  display: flex;
+  transition: all 0.2s ease-in-out;
+  margin-right: 10px;
+}
+.btn i {
+  color: #df3796;
+  font-size: 20px;
+  padding-right: 10px;
+  transition: all 0.3s ease-in-out;
+}
+.btn span {
+  font-family: "Roboto", sans-serif;
+  align-self: center;
+  transform: translateX(0px);
+  transition: all 0.1s ease-in-out;
+  opacity: 1;
+}
+.btn:hover {
+  transform: scale(1.1);
+  background: linear-gradient(to right, #ff3019 0%, #c90477 100%);
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.10);
+}
+.btn:hover i {
+  transform: translateX(45px);
+  padding-right: 0;
+  color: #555;
+}
+.btn:hover span {
+  transform: translateX(30px);
+  opacity: 0;
+}
+.btn:active {
+  transform: scale(1);
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.10);
+}
+.btn-f {
+  min-width: 110px;
+  background-color: #000;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  color: #286ed6;
+  display: flex;
+  transition: all 0.2s ease-in-out;
+}
+.btn-f i {
+  color: #286ed6;
+  font-size: 20px;
+  padding-right: 10px;
+  transition: all 0.3s ease-in-out;
+}
+.btn-f span {
+  font-family: "Roboto", sans-serif;
+  align-self: center;
+  transform: translateX(0px);
+  transition: all 0.1s ease-in-out;
+  opacity: 1;
+}
+.btn-f:hover {
+  transform: scale(1.1);
+  background-color: #286ed6;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.10);
+}
+.btn-f:hover i {
+  transform: translateX(45px);
+  padding-right: 0;
+  color: #1f1;
+}
+.btn-f:hover span {
+  transform: translateX(30px);
+  opacity: 0;
+}
+.btn-f:active {
+  transform: scale(1);
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.10);
 }

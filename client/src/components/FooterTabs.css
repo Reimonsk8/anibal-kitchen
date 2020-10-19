@@ -1,0 +1,90 @@
+#menubar{
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    margin: 0px;
+    padding: 0px;
+    width: 100vw;
+    z-index: 2;
+    background-color: black;
+    opacity: 0.85;
+
+  }
+
+ul.menus{
+  width: 100vw;
+  margin: 0px;
+  padding: 0px;
+}
+#menubar  ul{
+  border: 0px;
+  display: flex;
+  align-items: stretch; /* Default */
+  justify-content: space-between;
+  overflow: hidden;
+  text-align: center;
+  -webkit-transition: max-height 0.5s;
+  transition: max-height 0.5s;
+}
+  #menubar li{
+    padding: 2vw;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    font-size: 3vmin;
+    color: #cdcdcd;
+    display: block;
+    flex: 0 1 auto; /* Default */
+    list-style-type: none;
+      -webkit-transition: background .5s;
+    transition: background .5s
+  }
+  #menubar .menus li:hover{
+    color: #fafafa;
+    cursor: pointer;
+    /*
+    background: #fafafa;
+    opacity: 1;
+    */
+    
+  }
+  
+  /* @900px*/
+  @media only screen and (max-width: 56.25em) {
+      .col{ margin: 1% 0 1% 0%;}
+      .span_3_of_3, .span_2_of_3, .span_1_of_3{ width: 100%; }
+      .side-post{ width: 42%;
+                 float: left;
+                 margin: -2% 0 1% 1.6%;}
+  }
+  /* @685px*/
+  
+  /* Underline From Center */
+  .hvr-underline-from-center {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    /*box-shadow: 0 0 1px rgba(0, 0, 0, 0);*/
+    position: relative;
+    overflow: hidden;
+  }
+  .hvr-underline-from-center:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 51%;
+    right: 51%;
+    bottom: 0;
+    background: #fafafa;;
+    height: 5px;
+    -webkit-transition-property: left, right;
+    transition-property: left, right;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+  }
+  .hvr-underline-from-center:hover:before, .hvr-underline-from-center:focus:before, .hvr-underline-from-center:active:before {
+    left: 0;
+    right: 0;
+  }
