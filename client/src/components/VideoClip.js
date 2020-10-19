@@ -29,7 +29,7 @@ class VideoClip extends React.Component{
   return(
     <div className="video-wrapper">
       <p>{videonum}</p>
-      <div id="player"></div>
+      <div id={"player"+videonum}></div>
     </div>
   )
   }
