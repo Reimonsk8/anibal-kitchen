@@ -7,8 +7,6 @@ import MenuItemBox from './components/MenuItemBox.js';
 import HamburgerMenu from './components/HamburgerMenu.js'
 import HeaderGlitch from './components/HeaderGlitch.js'
 import FooterTabs from './components/FooterTabs.js'
-// import icon from './favicon.ico';
-import './assets/fonts.css';
 
 // const beatList = [
 //   { name: 'Beat 1' },
@@ -22,15 +20,15 @@ import './assets/fonts.css';
 //   { name: 'Beat 9' }
 // ];
 const topList = [
-  { name: ['Top 1 Hard Beat', 1]},
-  { name: ['Top 2 Soft Beat', 2]},
-  { name: ['Top 3 Crazy Fill', 3]},
-  { name: ['Top 4 Heavy Drum', 4]},
-  { name: ['Top 5 Synth Lead', 5]},
-  { name: ['Top 6 Weird Bass', 6]},
-  { name: ['Top 7 Slow Drum', 7]},
-  { name: ['Top 8 Minimal Bridge', 8]},
-  { name: ['Top 9 Hard Stepping', 9]},
+  { name: ['Hard Beat', 1]},
+  { name: ['Soft Beat', 2]},
+  { name: ['Crazy Fill', 3]},
+  { name: ['Heavy Drum', 4]},
+  { name: ['Synth Lead', 5]},
+  { name: ['Weird Bass', 6]},
+  { name: ['Slow Drum', 7]},
+  { name: ['Minimal Bridge', 8]},
+  { name: ['Hard Stepping', 9]},
 ];
 
 export const Menu = (topList, selected) =>
@@ -88,11 +86,28 @@ class App extends Component {
           <div className="layer2"></div>
           <br/><br/><br/>
           
-          <HeaderGlitch name={"ANIBAL"} size={"title"}/>
-          <HeaderGlitch name={"KITCHEN"} size={"title"}/>
+          <div id="AppHeader">
+            <HeaderGlitch name={"ANIBAL"} size={"title"}/>
+            <HeaderGlitch name={"KITCHEN"} size={"title"}/>
+            <br/>
+            <br/>
+            <p className="marquee">
+              <span className="RightToLeft"> Welcome to Anibal.Kitchen browse and find hot beats to purchase, Skerreee!
+              </span>
+            </p>
+            <br/>
+            <p className="marquee">
+            <span className="LeftToRight"> Find me in social media as 
+                <a href="#" className="fa fa-twitter"> - </a>
+                <a href="#" className="fa fa-facebook"> - </a>
+                <a href="#" className="fa fa-instagram"> - </a>
+              </span>
+            </p>
+
+          </div>
+
           <div className="playlist-container">
-            <img src={logo} className="App-logo" alt="logo" />
-            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+            <br/><br/><br/><br/><br/><br/><br/>
             <HeaderGlitch name={"Browse all beats"} size={"subtitle"}/>
             <ScrollMenu
               hideArrows={true}
@@ -102,7 +117,11 @@ class App extends Component {
               onSelect={this.onSelect}
             />
           </div>
-          
+          <br/><br/>
+          <p>artist colabaration produced & using anibal kitchen beats</p>
+          <p>GEEZYS</p>
+          <p>OTHERS</p>
+          <p>TYRIAN</p>
           <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
             <div className="playlist-container">
               <HeaderGlitch name={"Top weekly beats"} size={"subtitle"}/>
@@ -116,7 +135,7 @@ class App extends Component {
             </div>
             <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
             
-            {/* <div className="btn__container">
+            <div className="btn__container">
               <a href="https://www.facebook.com/anibal.kitchen.studio/" className="btn">
                 <i className="fab fa-instagram"></i>
                 <span>instagram</span>
@@ -125,21 +144,16 @@ class App extends Component {
                 <i className="fab fa-facebook"></i>
                 <span>facebook</span>
               </a>
-            </div> */}
+            </div>
             <p>©ANIBAL KITCHEN 2020. ALL RIGHTS RESERVED</p>
             <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-
             <p>TODO LIST pending</p>
-            <ul>
-              <i>scrolling down on mobile</i><br></br>
-              <i>fonts google</i><br></br>
-              <i>remove errors yotube</i>
-              <i>Api browse by Genre</i><br></br>
-              <i>item Price link to beatport</i><br></br>
-              <i>fix horizontal scrolling item to work well</i><br></br>
-              <i>Item beating when played</i><br></br>
-              <i>smoke particles background</i><br></br>
-            </ul>
+            <p>remove errors yotube</p>
+            <p>Api browse by Genre</p>
+            <p>item Price link to beatport</p>
+            <p>fix horizontal scrolling item to work well</p>
+            <p>Item beating when played</p>
+            <p>smoke particles background</p>
             <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/> 
         </div>
     );

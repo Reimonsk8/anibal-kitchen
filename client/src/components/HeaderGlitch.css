@@ -19,13 +19,14 @@
 	*/
 }
 div.title .glitch{
-	text-align: right;
-	font-size: calc(5vw + 3vh);
+  font-family: 'Orbitron', sans-serif;
+	text-align: center;
+  font-size: calc(5vw + 3vh);
 }
 div.subtitle .glitch{
-
-	text-align: right;
-	font-size: calc(2vw + 2vh);
+  font-family: 'Orbitron', sans-serif;
+	text-align: left;
+	font-size: calc(1.7vw + 1.2vh);
 }
 /* Our mixin positions a copy of our text directly on our existing text, while also setting content to the appropriate text set in the data-text attribute. */
 .glitch {

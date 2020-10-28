@@ -5,10 +5,11 @@
     font-family: Heebo, "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: white;
     border-radius: 10px;
-    padding: 2vh 0vw 3vh 0vw;
-    margin: 1vw;
+    padding: 10px 0vw 30px 0vw;
+    margin: 10px;
     box-shadow: rgba(245, 19, 142, 0.24);
-    background: linear-gradient(135deg, black 45%, #09095b 47%, #c700a2 51%, #c41a6f 53%, black 56%);
+    /* background: linear-gradient(135deg, black 45%, #09095b 47%, #c700a2 51%, #c41a6f 53%, black 56%); */
+    background: linear-gradient(135deg, black 20%, #09095b 40%, #c700a2 60%, #c41a6f 80%, black 100%);
     -webkit-tap-highlight-color: transparent;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizelegibility;
@@ -18,19 +19,17 @@
     width: 200px;
     height: 220px;
     opacity: 0.9;
-    background-size: 1500% 1500%;
-    animation: gradient 10s ease infinite;
+    /* background-size: 1500% 1500%;
+    animation: gradient 10s ease infinite; */
 }
 .menu-item-box a{
-    /* "Blippo", "OCR A Std", monospace */
-    font: bold 20px monospace;
+    font: bold 20px 'Orbitron', sans-serif;
     text-decoration: none;
     color: white;
     transition: color 1s cubic-bezier(0.32, 0, 0.67, 0);
 }
 .menu-item-box a:hover{
-    color: #e8fd26;
-    font: bold 18px Tahoma;
+    text-decoration: overline;
     transition: color 1s cubic-bezier(0.33, 1, 0.68, 1);
 }
 .menu-item-box a::before {
