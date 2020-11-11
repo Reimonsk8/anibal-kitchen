@@ -133,8 +133,15 @@ class App extends Component {
                 onSelect={this.onSelect}
               />
             </div>
-            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-            
+            <br/><br/><br/><br/><br/>
+            <p>TODO LIST pending</p>
+            <p>remove errors yotube</p>
+            <p>Api browse by Genre</p>
+            <p>item Price link to beatport</p>
+            <p>fix horizontal scrolling item to work well</p>
+            <p>Item beating when played</p>
+            <p>smoke particles background</p>
+            <br/><br/><br/><br/><br/>
             <div className="btn__container">
               <a href="https://www.facebook.com/anibal.kitchen.studio/" className="btn">
                 <i className="fab fa-instagram"></i>
@@ -146,15 +153,7 @@ class App extends Component {
               </a>
             </div>
             <p>©ANIBAL KITCHEN 2020. ALL RIGHTS RESERVED</p>
-            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-            <p>TODO LIST pending</p>
-            <p>remove errors yotube</p>
-            <p>Api browse by Genre</p>
-            <p>item Price link to beatport</p>
-            <p>fix horizontal scrolling item to work well</p>
-            <p>Item beating when played</p>
-            <p>smoke particles background</p>
-            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/> 
+            <br/><br/><br/>
         </div>
     );
 

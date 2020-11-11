@@ -5,20 +5,21 @@
     font-family: Heebo, "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: white;
     border-radius: 10px;
-    padding: 10px 0vw 30px 0vw;
+    padding: 20px 0vw 10px 0vw;
     margin: 10px;
     box-shadow: rgba(245, 19, 142, 0.24);
     /* background: linear-gradient(135deg, black 45%, #09095b 47%, #c700a2 51%, #c41a6f 53%, black 56%); */
     background: linear-gradient(135deg, black 20%, #09095b 40%, #c700a2 60%, #c41a6f 80%, black 100%);
+    background: black;
     -webkit-tap-highlight-color: transparent;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizelegibility;
     position: relative;
     z-index: 1;
     overflow: hidden;
-    width: 200px;
-    height: 220px;
-    opacity: 0.9;
+    width: 250px;
+    height: 260px;
+    
     /* background-size: 1500% 1500%;
     animation: gradient 10s ease infinite; */
 }
