@@ -1,0 +1,51 @@
+#ExploreGrid{
+  text-align: center;
+  display: grid;
+  grid-template-columns: 50vw 50vw;
+  grid-template-rows: 25vh 25vh 25vh;
+  justify-content: center;
+  
+}
+
+#ExploreGrid div{
+
+  display: table-cell;
+  margin: auto;
+  padding: 5px;
+  background-color: #283f06;
+  border-radius: 15px;
+  border: solid rgba(0, 0, 0, 0.6) 2.5px;
+  width: calc(6vw + 10vh);
+  height: calc(6vw + 10vh);
+  position: relative; 
+
+
+}
+
+.ContainerTitle{
+  width: 100%;
+  text-align: center;
+}
+.ContainerHeader{
+  display: inline-block;
+  /* margin: 0 auto; */
+  padding: 3px;
+}
+.Rap{
+  background: linear-gradient(0deg, #4b6cb7 0%, #182848 100%);
+}
+.Trap{
+  background: linear-gradient(235deg, #0700b8 0%, #00ff88 100%);
+}
+.Regueton{
+  background: linear-gradient(10deg, #FDBB2D 0%, #3A1C71 100%);
+}
+.Electronic{
+  background: linear-gradient(200deg, #d53369 0%, #daae51 100%);
+}
+.Sale{
+  background: linear-gradient(0deg, #fcff9e 0%, #c67700 100%);
+}
+.Free{
+  background: linear-gradient(-40deg, #f8ff00 0%, #3ad59f 100%);
+}

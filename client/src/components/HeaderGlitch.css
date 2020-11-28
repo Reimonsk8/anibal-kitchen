@@ -1,5 +1,5 @@
 #background{
-	max-width: 95%;
+	max-width: 90vw;
 	/* background: #0a0a0a;
 	background-image: url("https://media0.giphy.com/media/nizkfSsoo0Rb2/200w.webp?cid=ecf05e4742f8f38d8fd0aef871e4f95d0733dfc8f13df545&rid=200w.webp"); */
 	margin-bottom: 0vh;
@@ -21,12 +21,15 @@
 div.title .glitch{
   font-family: 'Orbitron', sans-serif;
 	text-align: center;
-  font-size: calc(5vw + 3vh);
+	font-size: calc(1vw + 1vh);
+	max-width: 95vw;
 }
 div.subtitle .glitch{
   font-family: 'Orbitron', sans-serif;
 	text-align: left;
 	font-size: calc(1.7vw + 1.2vh);
+	margin-left: 30px;
+	max-width: 95vw;
 }
 /* Our mixin positions a copy of our text directly on our existing text, while also setting content to the appropriate text set in the data-text attribute. */
 .glitch {

@@ -24,6 +24,8 @@ ul.menus{
   text-align: center;
 }
 #menubar li{
+  border: rgb(8, 8, 8) 2px solid;
+  width: 50%;
   margin: 0px;
   padding: 2vw;
   padding-top: 1vh;
@@ -31,10 +33,18 @@ ul.menus{
   font-size: 3vmin;
   color: #cdcdcd;
   display: block;
-  flex: 0 1 auto; /* Default */
+  flex: 0 1 auto;
   list-style-type: none;
 }
 #menubar li:hover{
-  
   text-decoration: overline;
+  background-color: rgb(12, 12, 12)
+  
+}
+
+.menus img{
+  padding-bottom: 0px;
+  position: relative;
+  width: 30px;
+  filter: invert(100%);
 }

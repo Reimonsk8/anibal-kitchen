@@ -7,6 +7,9 @@ import MenuItemBox from './components/MenuItemBox.js';
 import HamburgerMenu from './components/HamburgerMenu.js'
 import HeaderGlitch from './components/HeaderGlitch.js'
 import FooterTabs from './components/FooterTabs.js'
+import ExploreGrid from './components/ExploreGrid.js'
+import SearchBox from './components/SearchBox.js';
+import ForkIcon from './assets/fork-icon.png'
 
 // const beatList = [
 //   { name: 'Beat 1' },
@@ -19,16 +22,14 @@ import FooterTabs from './components/FooterTabs.js'
 //   { name: 'Beat 8' },
 //   { name: 'Beat 9' }
 // ];
+
 const topList = [
-  { name: ['Hard Beat', 1]},
-  { name: ['Soft Beat', 2]},
-  { name: ['Crazy Fill', 3]},
-  { name: ['Heavy Drum', 4]},
-  { name: ['Synth Lead', 5]},
-  { name: ['Weird Bass', 6]},
-  { name: ['Slow Drum', 7]},
-  { name: ['Minimal Bridge', 8]},
-  { name: ['Hard Stepping', 9]},
+  { name: ['https://www.beatstars.com/beat/6452560', 1]},
+  { name: ['https://www.beatstars.com/beat/6434495', 2]},
+  { name: ['https://www.beatstars.com/beat/6425823', 3]},
+  { name: ['https://www.beatstars.com/beat/6417102', 4]},
+  { name: ['https://www.beatstars.com/beat/6397721', 5]},
+  { name: ['https://www.beatstars.com/beat/midas-6388759', 6]}
 ];
 
 export const Menu = (topList, selected) =>
@@ -52,6 +53,7 @@ class App extends Component {
   }
  
   state = {
+    showMainComponent: "Home",
     // selectedBeat,
     selectedTop,
     selected,
@@ -70,28 +72,68 @@ class App extends Component {
   onSelect = key => {
     this.setState({selected: key });
   }
+
+  setPage = (value) => {
+    this.setState({showMainComponent: value});
+  }
+
   
   render() {
+
+    
     const { selected } = this.state;
     // Create menu from items
     // const beatMenuItems = this.beatMenuItems;
     // const topMenuItems = this.topMenuItems;
     const menu = this.menuItems;
 
+    let showMainComponent = <div></div>
+    if(this.state.showMainComponent=="Home"){
+      showMainComponent = <div>
+        <div className="playlist-container">
+        <br/><br/><br/><br/><br/><br/><br/>
+        <HeaderGlitch name={"Browse all beats"} size={"subtitle"}/>
+        <ScrollMenu
+          hideArrows={true}
+          dragging={true}
+          data={menu}
+          selected={selected}
+          onSelect={this.onSelect}
+        />
+        </div>
+        <br/><br/>
+        <p>artist colabaration produced & using anibal kitchen beats</p>
+        <p>GEEZYS</p>
+        <p>OTHERS</p>
+        <p>TYRIAN</p>
+        <div id="DemoPlayer">
+          <iframe width="360" height="240" src="https://www.youtube.com/embed/UQbknNrqxOw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    }else if(this.state.showMainComponent=="Explore"){
+      showMainComponent = <div>
+        <ExploreGrid></ExploreGrid>
+      </div>
+    }
+
     return (
         <div className="App">
           <HamburgerMenu id="Menu"/>
-          <FooterTabs></FooterTabs>
+          <SearchBox />
+          <FooterTabs changePage={(value) => this.setPage(value)}></FooterTabs>
           <div className="layer"></div>
           <div className="layer2"></div>
-          <br/><br/><br/>
+          <br/>
           
           <div id="AppHeader">
-            <HeaderGlitch name={"ANIBAL"} size={"title"}/>
-            <HeaderGlitch name={"KITCHEN"} size={"title"}/>
-            <br/>
-            <br/>
-            <p className="marquee">
+            <div className="InlineTitle">
+              <div id="CenterBox">
+                <img id="ForkIcon" src={ForkIcon}></img>
+                <HeaderGlitch name={"ANIBAL KITCHEN"} size={"title"}/>
+              </div>
+            </div>
+
+            {/* <p className="marquee">
               <span className="RightToLeft"> Welcome to Anibal.Kitchen browse and find hot beats to purchase, Skerreee!
               </span>
             </p>
@@ -102,28 +144,12 @@ class App extends Component {
                 <a href="#" className="fa fa-facebook"> - </a>
                 <a href="#" className="fa fa-instagram"> - </a>
               </span>
-            </p>
-
+            </p> */}
           </div>
 
-          <div className="playlist-container">
-            <br/><br/><br/><br/><br/><br/><br/>
-            <HeaderGlitch name={"Browse all beats"} size={"subtitle"}/>
-            <ScrollMenu
-              hideArrows={true}
-              dragging={true}
-              data={menu}
-              selected={selected}
-              onSelect={this.onSelect}
-            />
-          </div>
-          <br/><br/>
-          <p>artist colabaration produced & using anibal kitchen beats</p>
-          <p>GEEZYS</p>
-          <p>OTHERS</p>
-          <p>TYRIAN</p>
+          {showMainComponent}
           <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-            <div className="playlist-container">
+            {/* <div className="playlist-container">
               <HeaderGlitch name={"Top weekly beats"} size={"subtitle"}/>
               <ScrollMenu
                 hideArrows={true}
@@ -133,7 +159,7 @@ class App extends Component {
                 onSelect={this.onSelect}
               />
             </div>
-            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/> */}
             
             <div className="btn__container">
               <a href="https://www.facebook.com/anibal.kitchen.studio/" className="btn">
@@ -145,6 +171,7 @@ class App extends Component {
                 <span>facebook</span>
               </a>
             </div>
+            
             <p>©ANIBAL KITCHEN 2020. ALL RIGHTS RESERVED</p>
             <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
             <p>TODO LIST pending</p>
@@ -155,7 +182,9 @@ class App extends Component {
             <p>Item beating when played</p>
             <p>smoke particles background</p>
             <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/> 
+            
         </div>
+        
     );
 
       

@@ -5,11 +5,13 @@
     font-family: Heebo, "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: white;
     border-radius: 10px;
-    padding: 10px 0vw 30px 0vw;
-    margin: 10px;
+    /* padding: 10px 0vw 30px 0vw; */
+    margin: 15px;
+    padding: 10px;
     box-shadow: rgba(245, 19, 142, 0.24);
     /* background: linear-gradient(135deg, black 45%, #09095b 47%, #c700a2 51%, #c41a6f 53%, black 56%); */
-    background: linear-gradient(135deg, black 20%, #09095b 40%, #c700a2 60%, #c41a6f 80%, black 100%);
+    /* background: linear-gradient(135deg, black 20%, #09095b 40%, #c700a2 60%, #c41a6f 80%, black 100%); */
+    background-color: black;
     -webkit-tap-highlight-color: transparent;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizelegibility;
@@ -50,7 +52,7 @@
         100% 100%,
         0% 110%
     );
-    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+    background: linear-gradient(45deg, rgba(131,58,180,1) 0%, rgb(23, 179, 153) 50%, rgb(29, 253, 85) 100%);
     transition: clip-path 1s cubic-bezier(0.25, 1, 0.5, 1);
     opacity: 0.5;
 
@@ -58,14 +60,14 @@
 
 .menu-item-box a:hover::before {
     clip-path: polygon(
-        0% 10%,
+        0% 0%,
         100% 0%,
-        100% 20%,
-        0% 30%,
+        100% 10%,
+        0% 5%,
         0% 100%,
-        100% 90%,
-        100% 70%,
-        0% 80%
+        100% 100%,
+        100% 95%,
+        0% 90%
     );
 }
 
@@ -87,8 +89,8 @@
     transform: translate(50%, -50%) rotate(135deg) scale(1);
 }
 .menu-item {
-    padding: 0 40px;
-    margin: 5px 10px;
+    /* padding: 0 40px;
+    margin: 5px 10px; */
     user-select: none;
     cursor: pointer;
     border: none;
