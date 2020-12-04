@@ -100,12 +100,13 @@ div#CenterBox{
   height: 100vh;
   /* background: linear-gradient(335deg,black,black,black, #e73c7e,  #09095b, #05001b , #121212, black,black,black); */
   background: linear-gradient(335deg,#010203 35%,#014122 ,#018141,#00cc60,#00ff7f 50%,black 70%);
-  background-size: 300% 300%;
+  background-size: 250% 250%;
   animation: gradient 30s ease infinite;
 }
 .layer2{
   z-index: -1;
   opacity: 0.80;
+  filter:hue-rotate(150deg);
   position: fixed;
   margin: 0px;
   padding: 0px;

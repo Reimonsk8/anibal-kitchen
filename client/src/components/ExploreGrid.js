@@ -11,16 +11,16 @@ const ExploreGrid = () => {
       <div className="ContainerTitle">
         <div className="HeaderTitle">
           {/* <HeaderGlitch name={"Explore"} size={"title"}/> */}
-          <h1>EXPLORE</h1>
+          <h1></h1>
         </div>
       </div>
       <div id="ExploreGrid" >
-          <div className="Rap">Rap</div>
-          <div className="Trap">Trap</div>
-          <div className="Regueton">Regueton</div>
-          <div className="Electronic">Electronic</div>
-          <div className="Sale">Sale</div>
-          <div className="Free">Free</div>
+          <div className="Rap"><p>Rap</p></div>
+          <div className="Trap"><p>Trap</p></div>
+          <div className="Regueton"><p>Regueton</p></div>
+          <div className="Electronic"><p>Electronic</p></div>
+          <div className="Sale"><p>Sale</p></div>
+          <div className="Free"><p>Free</p></div>
       </div>
     </div>
   )

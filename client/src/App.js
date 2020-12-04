@@ -102,13 +102,26 @@ class App extends Component {
         />
         </div>
         <br/><br/>
-        <p>artist colabaration produced & using anibal kitchen beats</p>
-        <p>GEEZYS</p>
-        <p>OTHERS</p>
-        <p>TYRIAN</p>
+        <p className="marquee">
+            <span className="RightToLeft"> Welcome to Anibal.Kitchen browse and find hot beats to purchase, Skerreee!</span>
+          </p>
+            <br/>
+            <p className="marquee">
+            <span className="LeftToRight"> 
+                <a href="#" className="fa fa-twitter"> - </a>
+                <a href="#" className="fa fa-facebook"> - </a>
+                <a href="#" className="fa fa-instagram"> - </a>
+              </span>
+            </p>
+          <br/><br/>
         <div id="DemoPlayer">
           <iframe width="360" height="240" src="https://www.youtube.com/embed/UQbknNrqxOw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
+        
+        <p>artist colabarations produced & using anibal kitchen beats</p>
+        <p>GEEZYS</p>
+        <p>TYRIAN</p>
+        <p>OTHERS</p>
       </div>
     }else if(this.state.showMainComponent=="Explore"){
       showMainComponent = <div>
@@ -132,19 +145,6 @@ class App extends Component {
                 <HeaderGlitch name={"ANIBAL KITCHEN"} size={"title"}/>
               </div>
             </div>
-
-            {/* <p className="marquee">
-              <span className="RightToLeft"> Welcome to Anibal.Kitchen browse and find hot beats to purchase, Skerreee!
-              </span>
-            </p>
-            <br/>
-            <p className="marquee">
-            <span className="LeftToRight"> Find me in social media as 
-                <a href="#" className="fa fa-twitter"> - </a>
-                <a href="#" className="fa fa-facebook"> - </a>
-                <a href="#" className="fa fa-instagram"> - </a>
-              </span>
-            </p> */}
           </div>
 
           {showMainComponent}
@@ -160,28 +160,8 @@ class App extends Component {
               />
             </div>
             <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/> */}
-            
-            <div className="btn__container">
-              <a href="https://www.facebook.com/anibal.kitchen.studio/" className="btn">
-                <i className="fab fa-instagram"></i>
-                <span>instagram</span>
-              </a>
-                <a href="https://www.instagram.com/anibal.kitchen/?hl=es" className="btn-f">
-                <i className="fab fa-facebook"></i>
-                <span>facebook</span>
-              </a>
-            </div>
-            
             <p>©ANIBAL KITCHEN 2020. ALL RIGHTS RESERVED</p>
-            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-            <p>TODO LIST pending</p>
-            <p>remove errors yotube</p>
-            <p>Api browse by Genre</p>
-            <p>item Price link to beatport</p>
-            <p>fix horizontal scrolling item to work well</p>
-            <p>Item beating when played</p>
-            <p>smoke particles background</p>
-            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/> 
+            <br/><br/><br/><br/><br/><br/><br/>
             
         </div>
         

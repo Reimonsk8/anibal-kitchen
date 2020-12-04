@@ -8,44 +8,57 @@
 }
 
 #ExploreGrid div{
-
-  display: table-cell;
+  display: flex;
   margin: auto;
   padding: 5px;
   background-color: #283f06;
   border-radius: 15px;
-  border: solid rgba(0, 0, 0, 0.6) 2.5px;
+  border: solid rgba(0, 0, 0, 0.6) 3px;
   width: calc(6vw + 10vh);
   height: calc(6vw + 10vh);
   position: relative; 
+  opacity: 0.8;
+  transition: 2s cubic-bezier(0.075, 0.82, 0.165, 1) ;
+}
 
 
+
+#ExploreGrid div:hover{
+  filter: invert(1);
+}
+
+#ExploreGrid div p{
+  margin: auto;
+  align-self: center;
+  text-align: center;
+  font-size: calc(1.2vw + 1.5vh);
 }
 
 .ContainerTitle{
   width: 100%;
-  text-align: center;
 }
 .ContainerHeader{
   display: inline-block;
   /* margin: 0 auto; */
   padding: 3px;
+  
 }
 .Rap{
-  background: linear-gradient(0deg, #4b6cb7 0%, #182848 100%);
+  background-image: linear-gradient(315deg, #130f40 0%, #000000 74%);
 }
 .Trap{
-  background: linear-gradient(235deg, #0700b8 0%, #00ff88 100%);
+  background-image: linear-gradient(315deg, #000000 0%, #b82e1f 74%);
 }
 .Regueton{
-  background: linear-gradient(10deg, #FDBB2D 0%, #3A1C71 100%);
+  background-image: linear-gradient(30deg, #e84393 0%, #000000 74%);
 }
 .Electronic{
-  background: linear-gradient(200deg, #d53369 0%, #daae51 100%);
+  background-image: linear-gradient(315deg, #55efc4 0%, #000000 74%);
 }
 .Sale{
-  background: linear-gradient(0deg, #fcff9e 0%, #c67700 100%);
+  background-image: linear-gradient(300deg, #ffeaa7 0%, #000000 74%);
 }
 .Free{
-  background: linear-gradient(-40deg, #f8ff00 0%, #3ad59f 100%);
+  background-image: linear-gradient(315deg, #2d3436 0%, #d3d3d3 74%);
+  opacity: ;
 }
