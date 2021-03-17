@@ -1,0 +1,20 @@
+#main-frame{
+  position: relative;
+  width: 10vw;
+  padding: 1vw;
+}
+#main-container{
+  width: 100vw;
+
+  margin: auto;
+  padding: 1vw;
+  border: black 1px solid;
+  border-radius: 2px;
+}
+#content{
+  width: 100vw;
+
+  padding: 1vw;
+  border: black 2px solid;
+  border-radius: 2px;
+}

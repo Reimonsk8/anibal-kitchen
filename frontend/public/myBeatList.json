@@ -1,0 +1,102 @@
+{ "data":[
+  {
+    "title" : "beat 1",
+    "id": "player0",
+    "genre": "trap",
+    "videoId": "IpftN7DTqys",
+    "beatstartlink": "https://www.beatstars.com/beat/7578911"
+  },
+  {
+    "title" : "beat 2",
+    "id": "player1",
+    "genre:": ["trap"],
+    "videoId": "1r8Rka2efig",
+    "beatstartlink": "https://www.beatstars.com/beat/7556857"
+  },
+  {
+    "title" : "beat 3",
+    "id": "player2",
+    "genre:": ["trap"],
+    "videoId": "TwNoL2RRXHE",
+    "beatstartlink": "https://www.beatstars.com/beat/7528112"
+  },
+  {
+    "title" : "beat 4",
+    "id": "player3",
+    "genre:": ["trap", "free"],
+    "videoId": "F5OWSKxQ0r8",
+    "beatstartlink": "https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqazRGQ25pNnFRM2gwMTZjdUZ2Nzh3V05vQkZhZ3xBQ3Jtc0tsWWE2NlFPYmJrbG9LU1ZUeGdoSWoyeGNIU3NyWnJZUENmcnlQN245YXNoRnhMNmFzcnNiZFZXSzBsTjdlWElyelNWRExPYUNxWkEwMnFYR0hRa3k5eTBLMWRvT2VwWlZSdUV3S3RnZnJ0bFppREVUNA&q=https%3A%2F%2Fwww.mediafire.com%2Ffile%2Fqsg683dpln1gelf%2FAnibal_Kitchen_-_NLE_Choppa_x_DaBaby_Piano_Type_Beat.wav%2Ffile"
+  },
+  {
+    "title" : "beat 5",
+    "id": "player4",
+    "genre:": ["trap"],
+    "videoId": "SRBXhJkR5Fw",
+    "beatstartlink": "https://www.beatstars.com/beat/6770539"
+  },
+  {
+    "title" : "beat 6",
+    "id": "player5",
+    "genre:": ["trap"],
+    "videoId": "",
+    "beatstartlink": "https://www.beatstars.com/beat/midas-6388759"
+  },
+  {
+    "title" : "beat 7",
+    "id": "player6",
+    "genre": "trap",
+    "videoId": "IpftN7DTqys",
+    "beatstartlink": "https://www.beatstars.com/beat/6652423"
+  
+  },
+  {
+    "title" : "beat 8",
+    "id": "player7",
+    "genre:": ["trap"],
+    "videoId": "X5N0_EQFS1g",
+    "beatstartlink": "https://www.beatstars.com/beat/7556857"
+  },
+  {
+    "title" : "beat 9",
+    "id": "player8",
+    "genre:": ["trap"],
+    "videoId": "FHCznPLfoHA",
+    "beatstartlink": ""
+  },
+  {
+    "title" : "beat 10",
+    "id": "player9",
+    "genre:": ["trap"],
+    "videoId": "95UFbhFpUUs",
+    "beatstartlink": "https://www.beatstars.com/beat/6452560"
+  },
+  {
+    "title" : "beat 11",
+    "id": "player10",
+    "genre:": ["trap"],
+    "videoId": "AZh-Ih_CnUk",
+    "beatstartlink": "https://www.beatstars.com/beat/6434495"
+  },
+  {
+    "title" : "beat 12",
+    "id": "player11",
+    "genre:": ["trap"],
+    "videoId": "GU6iPW561Vg",
+    "beatstartlink": " https://www.beatstars.com/beat/6425823"
+  },
+  {
+    "title" : "beat 13",
+    "id": "player12",
+    "genre:": ["trap"],
+    "videoId": "ChqdCudA1sM",
+    "beatstartlink": "https://www.beatstars.com/beat/marihuana-6397721"
+  },
+  {
+    "title" : "beat 14",
+    "id": "player13",
+    "genre:": ["trap"],
+    "videoId": "cd3bke9vdHw",
+    "beatstartlink": "https://www.beatstars.com/beat/midas-6388759"
+  }
+]
+}
