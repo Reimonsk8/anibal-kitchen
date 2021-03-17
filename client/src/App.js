@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
-import logo from './logo.png';
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import './App.css';
 import ScrollMenu from 'react-horizontal-scrolling-menu';
 import SwiperContainer from './components/SwiperContainer.js'
+import HorizontalMenu from './components/HorizontalMenu.js'
 import MenuItemBox from './components/MenuItemBox.js';
 import HamburgerMenu from './components/HamburgerMenu.js'
 import HeaderGlitch from './components/HeaderGlitch.js'
@@ -10,162 +11,287 @@ import FooterTabs from './components/FooterTabs.js'
 import ExploreGrid from './components/ExploreGrid.js'
 import SearchBox from './components/SearchBox.js';
 import ForkIcon from './assets/fork-icon.png'
+import axios from 'axios';
 
-// const beatList = [
-//   { name: 'Beat 1' },
-//   { name: 'Beat 2' },
-//   { name: 'Beat 3' },
-//   { name: 'Beat 4' },
-//   { name: 'Beat 5' },
-//   { name: 'Beat 6' },
-//   { name: 'Beat 7' },
-//   { name: 'Beat 8' },
-//   { name: 'Beat 9' }
-// ];
+const Arrow = ({ text, className }) => {
+  return <div className={className}>{text}</div>;
+};
+Arrow.propTypes = {
+  text: PropTypes.string,
+  className: PropTypes.string
+};
 
-const topList = [
-  { name: ['https://www.beatstars.com/beat/6452560', 1]},
-  { name: ['https://www.beatstars.com/beat/6434495', 2]},
-  { name: ['https://www.beatstars.com/beat/6425823', 3]},
-  { name: ['https://www.beatstars.com/beat/6417102', 4]},
-  { name: ['https://www.beatstars.com/beat/6397721', 5]},
-  { name: ['https://www.beatstars.com/beat/midas-6388759', 6]}
-];
-
-export const Menu = (topList, selected) =>
-  topList.map(el => {
-    const {name} = el;
-    return <MenuItemBox text={name} key={name} selected={selected} />;
+export const Menu = (list, selected) =>
+  list.map(el => {
+    const {title, beatstartlink} = el;
+    //returning menuItem
+    return <MenuItemBox text={title} link={beatstartlink} key={title} selected={selected} />;
   });
 
-
-// const selectedBeat = 'Beat 2';
-const selectedTop = 'Top 1';
-const selected = "Top 2";
-
-class App extends Component {
-  constructor(props) {
-    super(props);
-    // call it again if items count changes
-    this.menuItems = Menu(topList, selected);
-    // this.beatMenuItems = SwiperContainer(beatList, selectedBeat);
-    this.topMenuItems = SwiperContainer(topList, selectedTop);
-  }
- 
-  state = {
-    showMainComponent: "Home",
-    // selectedBeat,
-    selectedTop,
-    selected,
-    alignCenter: true,
-    clickWhenDrag: false,
-    dragging: true,
-    hideArrows: true,
-    hideSingleArrow: true,
-    // itemsCount: beatList.length,
-    scrollToSelected: false,
-    translate: 0,
-    transition: 0.3,
-    wheel: true
+  const MenuItem = ({text, selected}) => {
+    return <div
+      className={`menu-item ${selected ? 'active' : ''}`}
+      >{text}</div>;
   };
- 
-  onSelect = key => {
-    this.setState({selected: key });
-  }
 
-  setPage = (value) => {
-    this.setState({showMainComponent: value});
-  }
+  export const Menu2 = (list, selected) =>
+  list.map(el => {
+    const {name} = el;
 
-  
-  render() {
+    return <MenuItem text={name} key={name} selected={selected} />;
+  });
 
+  const list = [
+    { name: 'item1' },
+    { name: 'item2' },
+    { name: 'item3' },
+    { name: 'item4' },
+    { name: 'item5' },
+    { name: 'item6' },
+    { name: 'item7' },
+    { name: 'item8' },
+    { name: 'item9' }
+  ];
     
-    const { selected } = this.state;
-    // Create menu from items
-    // const beatMenuItems = this.beatMenuItems;
-    // const topMenuItems = this.topMenuItems;
-    const menu = this.menuItems;
+export const ArrowLeft = Arrow({ text: "<-", className: "arrow-prev" });
+export const ArrowRight = Arrow({ text: "->", className: "arrow-next" });
 
-    let showMainComponent = <div></div>
-    if(this.state.showMainComponent=="Home"){
-      showMainComponent = <div>
-        <div className="playlist-container">
-        <br/><br/><br/><br/><br/><br/><br/>
-        <HeaderGlitch name={"Browse all beats"} size={"subtitle"}/>
-        <ScrollMenu
-          hideArrows={true}
-          dragging={true}
-          data={menu}
-          selected={selected}
-          onSelect={this.onSelect}
-        />
-        </div>
-        <br/><br/>
-        <p className="marquee">
-            <span className="RightToLeft"> Welcome to Anibal.Kitchen browse and find hot beats to purchase, Skerreee!</span>
-          </p>
-            <br/>
-            <p className="marquee">
-            <span className="LeftToRight"> 
-                <a href="#" className="fa fa-twitter"> - </a>
-                <a href="#" className="fa fa-facebook"> - </a>
-                <a href="#" className="fa fa-instagram"> - </a>
-              </span>
-            </p>
-          <br/><br/>
-        <div id="DemoPlayer">
-          <iframe width="360" height="240" src="https://www.youtube.com/embed/UQbknNrqxOw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        
-        <p>artist colabarations produced & using anibal kitchen beats</p>
-        <p>GEEZYS</p>
-        <p>TYRIAN</p>
-        <p>OTHERS</p>
-      </div>
-    }else if(this.state.showMainComponent=="Explore"){
-      showMainComponent = <div>
-        <ExploreGrid></ExploreGrid>
-      </div>
+function App(){
+
+  const [jsonItems, setJsonItems] = useState([]);
+  const [inputSearch, setInputSearch] = useState('');
+  const [showMainComponent, setMainComponent] = useState("Home");
+  const [selected, setSelected] = useState('');
+  const [selected2, setSelected2] = useState('item1');
+  const [menuItems2] = useState(Menu2(list, selected2));
+  const {alignCenter} = useState(true);
+
+  const ArrowLeft2 = Arrow({ text: '<', className: 'arrow-prev' });
+  const ArrowRight2 = Arrow({ text: '>', className: 'arrow-next' });
+
+  const onSelect2 = (key) => {
+    setSelected2(key);
+  }
+
+  useEffect(() => {
+    // const progressBarContainer = document.querySelector("#progressBarContainer");
+    // const progressBar = document.querySelector("#progressBar");
+    // let totalPageHeight = document.body.scrollHeight - window.innerHeight;
+    // let debounceResize;
+
+    // window.addEventListener("scroll", () => {
+    //   let newProgressHeight = window.pageYOffset / totalPageHeight;
+    //   progressBar.style.transform = `scale(1,${newProgressHeight})`;
+    //   progressBar.style.opacity = `${newProgressHeight}`;
+    // }, {
+    //   capture: true,
+    //   passive: true
+    // });
+
+    // window.addEventListener("resize", () => {
+    //   clearTimeout(debounceResize);
+    //   debounceResize = setTimeout(() => {
+    //     totalPageHeight = document.body.scrollHeight - window.innerHeight;
+    //   }, 250);
+    // });
+
+    // progressBarContainer.addEventListener("click", (e) => {
+    //   let newPageScroll = e.clientY / progressBarContainer.offsetHeight * totalPageHeight;
+    //   window.scrollTo({
+    //     top: newPageScroll,
+    //     behavior: 'smooth'
+    //   });
+    // });
+    const getJsonItems = async () =>{
+      await axios.get('myBeatList.json').then(response =>{
+        setJsonItems(response.data.data)
+      }).catch((err)=> {
+        console.log(err.response.data)
+      });
     }
+    getJsonItems()
+    // setSelected(true)
+  },[]);
 
-    return (
-        <div className="App">
-          <HamburgerMenu id="Menu"/>
-          <SearchBox />
-          <FooterTabs changePage={(value) => this.setPage(value)}></FooterTabs>
-          <div className="layer"></div>
-          <div className="layer2"></div>
+  const updateSearchInput = (inputSearch = "") =>{
+    setInputSearch(inputSearch)
+  }
+
+  const getSearchFilterData = () =>{
+    return jsonItems.filter((item) => item.title.toLowerCase().includes(inputSearch.toLowerCase()))
+  }
+
+  const getMatchedItems = () =>{
+    return getSearchFilterData()
+  }
+ 
+  const onSelect = (key) => {
+    setSelected(key)
+  }
+
+  const setPage = (value) => {
+    setMainComponent(value);
+  }
+  
+  const menu = Menu(getMatchedItems(), selected);
+  let mainComponent = <></>
+  if(showMainComponent == "Home"){
+    mainComponent = 
+    <div>
+      <br/><br/><br/><br/><br/><br/><br/>
+      <HeaderGlitch name={"Browse all beats"} size={"subtitle"}/>
+      
+      <HorizontalMenu data={ Menu(getMatchedItems(), selected)}></HorizontalMenu>
+      <ScrollMenu
+        // hideArrows={false}
+        alignCenter={alignCenter}
+        arrowLeft={ArrowLeft}
+        arrowRight={ArrowRight}
+        hideArrows={false}
+        clickWhenDrag={false}
+        dragging={true}
+        data={menuItems2}
+        selected={selected}
+        onSelect={onSelect}
+        // onUpdate={onSelect}
+        transition={0.5}
+        translate={0.5}
+      />
+      
+      <ScrollMenu
+        data={menu}
+        arrowLeft={ArrowLeft2}
+        arrowRight={ArrowRight2}
+        selected={selected2}
+        onSelect={onSelect2}
+      /> 
+
+
+      <br/><br/>
+      <p className="marquee">
+          <span className="RightToLeft"> Welcome to Anibal.Kitchen browse and find hot beats to purchase, Skerreee!</span>
+        </p>
           <br/>
-          
-          <div id="AppHeader">
-            <div className="InlineTitle">
-              <div id="CenterBox">
-                <img id="ForkIcon" src={ForkIcon}></img>
-                <HeaderGlitch name={"ANIBAL KITCHEN"} size={"title"}/>
+          <p className="marquee">
+          <span className="LeftToRight"> 
+              <a href="#" className="fa fa-twitter"> - </a>
+              <a href="#" className="fa fa-facebook"> - </a>
+              <a href="#" className="fa fa-instagram"> - </a>
+            </span>
+          </p>
+        {/* <br/><br/>
+      {
+        jsonItems.map( item => {
+          return <div key={item.title} >{item.title}</div>
+        })
+      } */}
+      {/* <div id="DemoPlayer">
+        <iframe width="360" height="240" src="https://www.youtube.com/embed/UQbknNrqxOw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div> */}
+      
+      <p>artist colabarations produced & using anibal kitchen beats</p>
+      <p>GEEZYS</p>
+      <p>TYRIAN</p>
+      <p>OTHERS</p>
+    </div>
+  }else if(showMainComponent=="Explore"){
+    mainComponent = 
+    <div>
+      <ExploreGrid></ExploreGrid>
+    </div>
+  }
+
+  return (
+      <div className="App">
+        <HamburgerMenu id="Menu"/>
+          <div className="layer">
+            <div className="layer2"></div>
+            <div>
+              <div id="div1" style={{margin: "auto",width: "100vw", position: "relative"}}>
+                <div id="div2" style={{overflow: "auto", border: "1px solid red"}}>
+                  <div id="div3" style={{height: "100vh", padding: "10vw"}}>
+                  {/* <div id="progressBarContainer">
+                  <div id="progressBar"></div>
+                  </div> */}                  
+
+                  {mainComponent}
+                  <SearchBox updateSearchInput onChange={updateSearchInput} input={inputSearch}/>
+                  <FooterTabs changePage={(value) => setPage(value)}></FooterTabs>
+                  <p>©ANIBAL KITCHEN 2020. ALL RIGHTS RESERVED</p>
+                  <br/><br/><br/><br/><br/><br/><br/>
+                  <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur
+                    provident eveniet veritatis ipsa id consectetur ab tenetur dolores eaque.
+                    Temporibus laboriosam cum corporis amet doloremque animi aut ipsa ea a?
+                  </p>
+                  <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur
+                    provident eveniet veritatis ipsa id consectetur ab tenetur dolores eaque.
+                    Temporibus laboriosam cum corporis amet doloremque animi aut ipsa ea a?
+                  </p>
+                  <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur
+                    provident eveniet veritatis ipsa id consectetur ab tenetur dolores eaque.
+                    Temporibus laboriosam cum corporis amet doloremque animi aut ipsa ea a?
+                  </p>
+                  <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur
+                    provident eveniet veritatis ipsa id consectetur ab tenetur dolores eaque.
+                    Temporibus laboriosam cum corporis amet doloremque animi aut ipsa ea a?
+                  </p>
+                  <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur
+                    provident eveniet veritatis ipsa id consectetur ab tenetur dolores eaque.
+                    Temporibus laboriosam cum corporis amet doloremque animi aut ipsa ea a?
+                  </p>
+                  <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur
+                    provident eveniet veritatis ipsa id consectetur ab tenetur dolores eaque.
+                    Temporibus laboriosam cum corporis amet doloremque animi aut ipsa ea a?
+                  </p>
+                  <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur
+                    provident eveniet veritatis ipsa id consectetur ab tenetur dolores eaque.
+                    Temporibus laboriosam cum corporis amet doloremque animi aut ipsa ea a?
+                  </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-          {showMainComponent}
-          <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-            {/* <div className="playlist-container">
-              <HeaderGlitch name={"Top weekly beats"} size={"subtitle"}/>
-              <ScrollMenu
-                hideArrows={true}
-                dragging={true}
-                data={menu}
-                selected={selected}
-                onSelect={this.onSelect}
-              />
+        {/* 
+        <FooterTabs changePage={(value) => setPage(value)}></FooterTabs>
+        
+        
+        <br/>
+        
+        <div id="AppHeader">
+          <div className="InlineTitle">
+            <div id="CenterBox">
+              <img id="ForkIcon" src={ForkIcon}></img>
+              <HeaderGlitch name={"ANIBAL KITCHEN"} size={"title"}/>
             </div>
-            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/> */}
-            <p>©ANIBAL KITCHEN 2020. ALL RIGHTS RESERVED</p>
-            <br/><br/><br/><br/><br/><br/><br/>
-            
+          </div>
         </div>
         
-    );
+        
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+          {/* <div className="playlist-container">
+            <HeaderGlitch name={"Top weekly beats"} size={"subtitle"}/>
+            <ScrollMenu
+              hideArrows={true}
+              dragging={true}
+              data={menu}
+              selected={selected}
+              onSelect={this.onSelect}
+            />
+          </div>
+          <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/> */}
+
+      </div>
+      
+  );
 
       
   //   let stuff = <div>
@@ -186,7 +312,7 @@ class App extends Component {
   //               
   // </div>              
 
-  }
+  
 }
 
 export default App;

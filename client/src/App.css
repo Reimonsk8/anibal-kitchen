@@ -73,39 +73,27 @@ div#CenterBox{
   width: calc(2vw + 2vh);
   filter: invert(100%) ;
 }
-.playlist-container{
-  z-index: 1;
-  /*
-  display: flex;
-  flex-direction: column;
-  font-size: calc(10px + 2vmin);
-  align-items: center;*/
-  color: white;
-  width: 100vw;
- /*background: linear-gradient(#19009b, #05001b , #121212);*/
-  /*background: linear-gradient(235deg,#09095b, #05001b , #121212);*/
-  text-size-adjust: 100%;
-  font-family: Heebo, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  box-shadow:  rgba(245, 19, 142, 0.24);
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizelegibility;
-  -webkit-tap-highlight-color: transparent;
-}
 .layer{
   z-index: -2;
   position: fixed;
+  top: 0px;
   margin: 0px;
   padding: 0px;
   width: 100vw;
-  height: 100vh;
+  /* height: 100vh; */
   /* background: linear-gradient(335deg,black,black,black, #e73c7e,  #09095b, #05001b , #121212, black,black,black); */
   background: linear-gradient(335deg,#010203 35%,#014122 ,#018141,#00cc60,#00ff7f 50%,black 70%);
   background-size: 250% 250%;
   animation: gradient 30s ease infinite;
+  /* overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap; */
+  /* overflow: auto; */
 }
-.layer2{
+div .layer2{
   z-index: -1;
   opacity: 0.80;
+  top: 0px;
   filter:hue-rotate(150deg);
   position: fixed;
   margin: 0px;
@@ -173,10 +161,19 @@ h3{
   border: none;
 }
 .menu-item-wrapper.active {
-  /* border: 1px blue solid; */
+
+}
+
+div.menu-item-wrapper.active{
+  
+}
+div.menu-item-wrapper.active:focus{
+  background-color:red;
+  border: 2px solid #00AA66;
+  box-shadow: 3px 3px red, -1em 0 0.4em olive;
+  border-radius: 50px;;
 }
 .menu-item.active {
-  /* border: 1px green solid; */
 }
 
 
@@ -271,4 +268,52 @@ h3{
 .btn-f:active {
   transform: scale(1);
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.10);
+}
+
+
+p {
+  font-size: 1.8rem;
+}
+
+p:first-of-type {
+  margin-top: 100px;
+}
+
+h1 {
+  font-size: 200px;
+  position: absolute;
+  top: -5%;
+  left: 15%;
+  opacity: 25%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+
+#progressBarContainer {
+  position: fixed;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+
+#progressBar {
+  position: absolute;
+  will-change: transform, opacity;
+  background: linear-gradient(to top, violet, red);
+  transform-origin: top center;
+  transform: scale(1, 0);
+  opacity: 0;
+}
+
+#progressBarContainer,
+#progressBar {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 10px;
 }
