@@ -5,6 +5,7 @@ import HorizontalMenu from './components/HorizontalMenu'
 import SearchBox from './components/SearchBox'
 import FooterTabs from './components/FooterTabs'
 import HamburgerMenu from './components/HamburgerMenu'
+import ForkIcon from './fork-icon.svg'
 
 function App() {
   
@@ -37,7 +38,7 @@ function App() {
     function onYouTubeIframeAPIReady() {
       if (typeof jsonItems === 'undefined') return;
       
-      for (var i = 0; i < jsonItems.length; i++) {
+      for (var i = 0; i < playersLen; i++) {
           var curplayer = createPlayer(jsonItems[i]);
           players[i] = curplayer;
       }
@@ -68,10 +69,10 @@ function App() {
       }
     }
   
-    if(playersLen !== 0){
+    if(playersLen > 0){
       setTimeout(() => {
         onYouTubeIframeAPIReady();
-      }, 500);
+      }, 1000);
     }
   }, [jsonItems])
 
@@ -86,6 +87,14 @@ function App() {
     <div className="App">
       <HamburgerMenu/>
       <SearchBox updateSearchInput onChange={updateSearchInput} input={inputSearch}/>
+      <div id="AppHeader">
+        <div className="InlineTitle">
+          <div id="CenterBox">
+            <img id="ForkIcon" src={ForkIcon}></img>
+            <h1 name={"ANIBAL KITCHEN"} size={"title"}/>
+          </div>
+        </div>
+      </div>
       <HorizontalMenu data={getMatchedItems()}/>
       <FooterTabs></FooterTabs>
       <p>©ANIBAL KITCHEN 2020. ALL RIGHTS RESERVED</p>
